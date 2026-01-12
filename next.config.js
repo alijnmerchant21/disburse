@@ -1,21 +1,23 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  webpack: (config, { isServer }) => {
-    // Ignore React Native dependencies that MetaMask SDK tries to use
+  webpack: (config, { webpack }) => {
+    // Use IgnorePlugin to completely ignore React Native dependencies from MetaMask SDK
+    config.plugins.push(
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^@react-native-async-storage\/async-storage$/,
+      }),
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^react-native$/,
+      })
+    )
+
+    // Fallback for optional dependencies
     config.resolve.fallback = {
       ...config.resolve.fallback,
       'pino-pretty': false,
-      '@react-native-async-storage/async-storage': false,
-      'react-native': false,
     }
-    
-    // Ignore React Native modules
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@react-native-async-storage/async-storage': false,
-    }
-    
+
     return config
   },
 }
