@@ -8,7 +8,7 @@ import { useDynamicContext } from '@dynamic-labs/sdk-react-core'
 export const dynamic = 'force-dynamic'
 
 export default function Home() {
-  const { user } = useDynamicContext()
+  const { user, sdkHasLoaded } = useDynamicContext()
   const isAuthenticated = !!user
 
   return (
@@ -25,7 +25,13 @@ export default function Home() {
             </p>
           </div>
           <div className="flex items-center gap-4">
-            <DynamicWidget />
+            {sdkHasLoaded ? (
+              <DynamicWidget />
+            ) : (
+              <div className="px-4 py-2 bg-slate-200 dark:bg-slate-700 rounded-lg animate-pulse">
+                <div className="w-20 h-8"></div>
+              </div>
+            )}
           </div>
         </header>
 
