@@ -2,11 +2,20 @@
 const nextConfig = {
   reactStrictMode: true,
   webpack: (config, { isServer }) => {
-    // Ignore pino-pretty warning (it's an optional dev dependency used by WalletConnect)
+    // Ignore React Native dependencies that MetaMask SDK tries to use
     config.resolve.fallback = {
       ...config.resolve.fallback,
       'pino-pretty': false,
+      '@react-native-async-storage/async-storage': false,
+      'react-native': false,
     }
+    
+    // Ignore React Native modules
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@react-native-async-storage/async-storage': false,
+    }
+    
     return config
   },
 }
