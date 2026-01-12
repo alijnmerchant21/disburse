@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false, // Disable to avoid potential stack overflow issues
   webpack: (config, { webpack }) => {
     // Use IgnorePlugin to completely ignore React Native dependencies from MetaMask SDK
     config.plugins.push(

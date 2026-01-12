@@ -1,14 +1,12 @@
 import { createConfig, http } from 'wagmi'
 import { mainnet, polygon, arbitrum, optimism, base, sepolia } from 'wagmi/chains'
-import { injected } from 'wagmi/connectors'
 
 const chains = [mainnet, polygon, arbitrum, optimism, base, sepolia] as const
 
 // Wagmi config for Dynamic SDK integration
-// Dynamic SDK handles wallet connections, but we need minimal connectors for wagmi v2
+// Dynamic SDK handles wallet connections through DynamicWagmiConnector
 export const config = createConfig({
   chains,
-  connectors: [injected()],
   transports: {
     [mainnet.id]: http(),
     [polygon.id]: http(),
@@ -17,5 +15,5 @@ export const config = createConfig({
     [base.id]: http(),
     [sepolia.id]: http(),
   },
-  ssr: true,
+  ssr: false,
 })
