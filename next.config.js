@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Disable output file tracing to prevent stack overflow during build trace collection
+  // This is a temporary workaround for Next.js 14.0.4 build trace collection issues
+  outputFileTracing: false,
   webpack: (config, { webpack, isServer }) => {
     // Use IgnorePlugin to completely ignore React Native dependencies from MetaMask SDK
     config.plugins.push(
