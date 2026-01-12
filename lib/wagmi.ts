@@ -5,8 +5,10 @@ const chains = [mainnet, polygon, arbitrum, optimism, base, sepolia] as const
 
 // Wagmi config for Dynamic SDK integration
 // Dynamic SDK handles wallet connections through DynamicWagmiConnector
+// multiInjectedProviderDiscovery: false prevents conflicts with Dynamic's provider discovery
 export const config = createConfig({
   chains,
+  multiInjectedProviderDiscovery: false,
   transports: {
     [mainnet.id]: http(),
     [polygon.id]: http(),
@@ -15,5 +17,4 @@ export const config = createConfig({
     [base.id]: http(),
     [sepolia.id]: http(),
   },
-  ssr: false,
 })
