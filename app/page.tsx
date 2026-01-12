@@ -4,6 +4,9 @@ import { DynamicWidget } from '@dynamic-labs/sdk-react-core'
 import { Dashboard } from '@/components/Dashboard'
 import { useDynamicContext } from '@dynamic-labs/sdk-react-core'
 
+// Force dynamic rendering to avoid SSR issues with Dynamic SDK
+export const dynamic = 'force-dynamic'
+
 export default function Home() {
   const { user } = useDynamicContext()
   const isAuthenticated = !!user

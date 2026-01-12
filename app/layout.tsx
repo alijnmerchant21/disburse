@@ -1,6 +1,10 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { Providers } from '@/components/Providers'
+import dynamic from 'next/dynamic'
+
+const Providers = dynamic(() => import('@/components/Providers').then(mod => ({ default: mod.Providers })), {
+  ssr: false,
+})
 
 export const metadata: Metadata = {
   title: 'Disburse - Multi-Wallet Balance Dashboard',
