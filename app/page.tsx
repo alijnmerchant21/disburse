@@ -1,11 +1,15 @@
 'use client'
 
-import { DynamicWidget } from '@dynamic-labs/sdk-react-core'
+import dynamic from 'next/dynamic'
 import { Dashboard } from '@/components/Dashboard'
 import { useDynamicContext } from '@dynamic-labs/sdk-react-core'
 
-// Force dynamic rendering to avoid SSR issues with Dynamic SDK
-export const dynamic = 'force-dynamic'
+// Dynamically import DynamicWidget with SSR disabled to prevent loading issues
+const DynamicWidget = dynamic(
+  () =>
+    import('@dynamic-labs/sdk-react-core').then((mod) => mod.DynamicWidget),
+  { ssr: false }
+)
 
 export default function Home() {
   const { user } = useDynamicContext()
