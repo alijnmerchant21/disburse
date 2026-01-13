@@ -2,6 +2,8 @@
 
 **Disburse** is a simple, user-friendly multi-wallet balance dashboard that lets users connect and consolidate their crypto wallets across multiple chains into a single, easy-to-understand view.
 
+🔗 **Live App**: [https://disburse-eight.vercel.app/](https://disburse-eight.vercel.app/)
+
 ## About
 
 Disburse addresses the challenge of managing digital assets across multiple wallets and chains. Current web3 tools either show balances per wallet or require complex navigation between interfaces. There's no simple unified view aimed at non-crypto users, making it hard to understand total holdings.
