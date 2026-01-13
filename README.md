@@ -4,6 +4,12 @@
 
 🔗 **Live App**: [https://disburse-eight.vercel.app/](https://disburse-eight.vercel.app/)
 
+🎥 **Demo Video**:
+
+<video controls width="100%">
+  <source src="./plan/disburse.mp4" type="video/mp4">
+</video>
+
 ## About
 
 Disburse addresses the challenge of managing digital assets across multiple wallets and chains. Current web3 tools either show balances per wallet or require complex navigation between interfaces. There's no simple unified view aimed at non-crypto users, making it hard to understand total holdings.
