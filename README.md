@@ -4,11 +4,7 @@
 
 🔗 **Live App**: [https://disburse-eight.vercel.app/](https://disburse-eight.vercel.app/)
 
-🎥 **Demo Video**:
-
-<video controls width="100%">
-  <source src="./plan/disburse.mp4" type="video/mp4">
-</video>
+🎥 **Demo Video**: [Watch Demo](./plan/disburse.mp4)
 
 ## About
 
